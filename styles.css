@@ -1,0 +1,550 @@
+:root {
+  --text-primary: #000;
+  --text-secondary: rgba(0, 0, 0, 0.55);
+  --border-subtle: rgba(0, 0, 0, 0.15);
+  --surface: #f7f7f7;
+  --panel-bg: #f9f9f9;
+  --error: #d80032;
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  font-size: 1.6rem;
+  background: #fff;
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  cursor: url('./cursor.png') 10 4, auto;
+}
+
+.app-shell {
+  display: block;
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-left {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3.6rem;
+  padding: 14vh 0 1.5vh 2vw;
+  align-items: flex-start;
+}
+
+.hero-line {
+  font-family: 'Futura', 'Futura PT', sans-serif;
+  font-weight: 700;
+  font-size: min(6.2rem, 5vw);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+}
+
+.hero-brand {
+  font-family: 'Futura', 'Futura PT', sans-serif;
+  font-weight: 700;
+  font-size: min(22rem, 22vw);
+  line-height: 0.8;
+  margin: 0;
+  margin-left: -1vw;
+  margin-bottom: -1vh;
+}
+
+.match-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 8rem 4rem;
+  overflow: hidden;
+}
+
+.match-bg-ellipse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-image: url('./Ellipse1.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.match-content {
+  width: 100%;
+  max-width: 120rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rem;
+  position: relative;
+  z-index: 1;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+.match-hero-line {
+  font-family: 'Futura', 'Futura PT', sans-serif;
+  font-weight: 500;
+  font-size: min(6.4rem, 5.5vw);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-align: center;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.match-hero-text {
+  white-space: nowrap;
+}
+
+.match-word-box {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  justify-content: flex-start;
+  position: relative;
+  min-width: 0;
+}
+
+.match-brace {
+  font-family: 'Futura', 'Futura PT', sans-serif;
+  font-weight: 700;
+  font-size: min(6.4rem, 5.5vw);
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.match-word {
+  font-family: 'Futura', 'Futura PT', sans-serif;
+  font-weight: 500;
+  font-size: min(6.4rem, 5.5vw);
+  line-height: 1;
+  color: var(--text-primary);
+  text-align: left;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition: opacity 0.35s ease, transform 0.35s ease, min-width 0.5s ease;
+  display: inline-block;
+}
+
+.match-word.match-word-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.match-hero-period {
+  white-space: nowrap;
+}
+
+.match-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  position: absolute;
+  bottom: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 120rem;
+  z-index: 2;
+}
+
+.match-desc-ko {
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  font-size: min(1.8rem, 1.6vw);
+  line-height: 1.6;
+  color: var(--text-primary);
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.match-desc-en {
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  font-size: min(1.8rem, 1.6vw);
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+.job-screen {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 8rem 4rem;
+}
+
+.job-screen-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: min(120rem, 100%);
+  padding: 8rem 6rem 10rem;
+  gap: 6rem;
+}
+
+.job-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.job-hero-line {
+  font-family: 'Futura', 'Futura PT', sans-serif;
+  font-weight: 500;
+  font-size: min(6rem, 6vw);
+  letter-spacing: -0.01em;
+  color: #000;
+  line-height: 1.2;
+}
+
+.job-hero-text {
+  display: inline-block;
+}
+
+.job-word-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.05em 0.6em;
+  min-width: 6ch;
+  position: relative;
+}
+
+.job-word-box::before,
+.job-word-box::after {
+  font-weight: 600;
+  font-size: 1em;
+  font-family: 'Futura', 'Futura PT', sans-serif;
+  opacity: 0.85;
+}
+
+.job-word-box::before {
+  content: '{';
+  margin-right: 0.3em;
+}
+
+.job-word-box::after {
+  content: '}';
+  margin-left: 0.3em;
+}
+
+.job-word {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1em;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateY(35%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.job-word.job-word-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.job-hero-period {
+  margin-left: 0.2em;
+}
+
+.job-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.panel-content {
+  width: min(76rem, 100%);
+  padding: 4rem;
+  border-radius: 3.2rem;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.task-input label {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  font-family: 'Futura', 'Futura PT', sans-serif;
+}
+
+.actions {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.actions.inline {
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 1.2rem;
+  padding: 1.4rem 2.6rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: 'Futura', 'Futura PT', sans-serif;
+  background: #fff;
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
+}
+
+button.primary {
+  font-weight: 600;
+}
+
+button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+button.ghost {
+  background: transparent;
+  border-style: dashed;
+}
+
+button.ghost:hover {
+  transform: translateY(-2px);
+  border-color: var(--text-primary);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+.results h2,
+.ai-consult h2 {
+  font-family: 'Futura', 'Futura PT', sans-serif;
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.help-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+}
+
+.tool-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+  gap: 2rem;
+  margin-top: 2.4rem;
+}
+
+.tool-card {
+  padding: 2.4rem;
+  border-radius: 2rem;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.tool-card h3 {
+  font-family: 'Futura', 'Futura PT', sans-serif;
+  font-size: 2rem;
+  color: var(--text-primary);
+}
+
+.tool-card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.tag {
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-family: 'Futura', 'Futura PT', sans-serif;
+}
+
+.highlight {
+  background: rgba(0, 0, 0, 0.12);
+  color: var(--text-primary);
+}
+
+textarea {
+  width: 100%;
+  border-radius: 1.8rem;
+  padding: 1.6rem 2rem;
+  border: 1px solid var(--border-subtle);
+  background: #fff;
+  color: var(--text-primary);
+  resize: vertical;
+  min-height: 12rem;
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  line-height: 1.6;
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+#apiStatus {
+  font-size: 1.4rem;
+  color: var(--text-secondary);
+  min-height: 2rem;
+}
+
+#apiStatus.error {
+  color: var(--error);
+}
+
+.ai-recommendation {
+  margin-top: 2rem;
+  padding: 2.4rem;
+  background: #fff;
+  border-radius: 2rem;
+  border: 1px solid var(--border-subtle);
+  line-height: 1.7;
+  white-space: pre-line;
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+}
+
+.logo-top-right {
+  position: fixed;
+  top: -6rem;
+  right: -6rem;
+  display: block;
+  width: auto;
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+}
+
+@media (max-width: 1200px) {
+  .hero-brand {
+    font-size: min(18rem, 22vw);
+  }
+
+  .hero-line {
+    font-size: min(4.8rem, 5vw);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-shell {
+    padding: 3rem;
+  }
+
+  .hero-left {
+    padding: 10vh 0 2vh 4vw;
+  }
+
+  .main-shell {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .hero-brand {
+    font-size: min(14rem, 38vw);
+    margin-left: -2vw;
+    margin-bottom: -1vh;
+  }
+
+  .hero-line {
+    font-size: min(3.8rem, 8vw);
+  }
+
+  .job-screen-inner {
+    padding: 6rem 3rem 8rem;
+  }
+
+  .job-hero-line {
+    font-size: min(5rem, 8vw);
+  }
+
+  .panel-content {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 540px) {
+  :root {
+    font-size: 55%;
+  }
+
+  .app-shell {
+    padding: 2.4rem;
+  }
+
+  .hero-brand {
+    font-size: min(11rem, 44vw);
+    margin-left: -3vw;
+    margin-bottom: -2vh;
+  }
+
+  .hero-line {
+    font-size: min(3rem, 9vw);
+  }
+
+  .job-screen-inner {
+    padding: 5rem 2.4rem 6rem;
+    gap: 4rem;
+  }
+
+  .job-hero-line {
+    font-size: min(4.4rem, 10vw);
+  }
+}
